@@ -1,4 +1,4 @@
-package com.coding.applicationchalleng;
+package com.coding.applicationchallenge;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

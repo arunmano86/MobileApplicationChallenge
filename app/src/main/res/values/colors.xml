@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="button_green_pressed">#008768</color>
+    <color name="button_green_focused">#01a982</color>
+    <color name="button_green_default">#33ba9b</color>
+
+    <color name="green_light">#33ba9b</color>
 </resources>

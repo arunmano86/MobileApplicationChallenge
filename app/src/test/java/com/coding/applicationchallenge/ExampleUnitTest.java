@@ -1,4 +1,4 @@
-package com.coding.applicationchalleng;
+package com.coding.applicationchallenge;
 
 import org.junit.Test;
 

@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">ApplicationChalleng</string>
+    <string name="app_name">ApplicationChallenge</string>
+
+
+    <string name="action_sign_in">Sign In</string>
+    <string name="prompt_user_name">User Name</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_short">Sign in</string>
+
+    <string name="empty_user_name">Enter the user name</string>
+    <string name="empty_password">Enter the password</string>
 </resources>
