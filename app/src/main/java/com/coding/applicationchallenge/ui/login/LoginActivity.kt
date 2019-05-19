@@ -1,5 +1,6 @@
 package com.coding.applicationchallenge.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -7,6 +8,7 @@ import android.widget.Toast
 import com.coding.applicationchallenge.R
 import com.coding.applicationchallenge.di.component.DaggerActivityComponent
 import com.coding.applicationchallenge.di.module.ActivityModule
+import com.coding.applicationchallenge.ui.list.ListActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
@@ -65,6 +67,8 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     override fun loginSuccessFully() {
         Toast.makeText(this, "Login SuccessFully", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, ListActivity::class.java)
+        startActivity(intent)
     }
 
     override fun loginFail() {

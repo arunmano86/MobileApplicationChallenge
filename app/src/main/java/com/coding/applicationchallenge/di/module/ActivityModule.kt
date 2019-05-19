@@ -1,6 +1,8 @@
 package com.coding.applicationchallenge.di.module
 
 import android.app.Activity
+import com.coding.applicationchallenge.ui.list.ListContract
+import com.coding.applicationchallenge.ui.list.ListPresenter
 import com.coding.applicationchallenge.ui.login.LoginContract
 import com.coding.applicationchallenge.ui.login.LoginPresenter
 import dagger.Module
@@ -15,7 +17,12 @@ class ActivityModule(private var activity: Activity) {
     }
 
     @Provides
-    fun provideListPresenter(): LoginContract.Presenter {
+    fun provideLoginPresenter(): LoginContract.Presenter {
         return LoginPresenter()
+    }
+
+    @Provides
+    fun provideListPresenter(): ListContract.Presenter {
+        return ListPresenter()
     }
 }
