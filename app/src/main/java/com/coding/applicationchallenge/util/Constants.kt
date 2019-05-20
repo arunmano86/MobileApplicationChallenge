@@ -1,4 +1,4 @@
-package com.coding.assignment.util
+package com.coding.applicationchallenge.util
 
 class Constants {
     companion object {

@@ -2,7 +2,7 @@ package com.coding.applicationchallenge.api
 
 
 import com.coding.applicationchallenge.models.User
-import com.coding.assignment.util.Constants
+import com.coding.applicationchallenge.util.Constants
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

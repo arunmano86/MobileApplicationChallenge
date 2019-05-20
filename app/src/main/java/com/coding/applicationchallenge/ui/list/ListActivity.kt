@@ -11,8 +11,9 @@ import com.coding.applicationchallenge.R
 import com.coding.applicationchallenge.di.component.DaggerActivityComponent
 import com.coding.applicationchallenge.di.module.ActivityModule
 import com.coding.applicationchallenge.models.User
-import com.coding.assignment.util.Constants
-import kotlinx.android.synthetic.main.activity_list_contact.*
+import com.coding.applicationchallenge.ui.details.DetailsActivity
+import com.coding.applicationchallenge.util.Constants
+import kotlinx.android.synthetic.main.activity_list.*
 import javax.inject.Inject
 
 class ListActivity : AppCompatActivity(), ListContract.View, ListAdapter.onItemClickListener {
@@ -23,7 +24,7 @@ class ListActivity : AppCompatActivity(), ListContract.View, ListAdapter.onItemC
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_contact)
+        setContentView(R.layout.activity_list)
 
         Log.d(TAG, "======onCreate==========>")
         injectDependency()
@@ -75,10 +76,10 @@ class ListActivity : AppCompatActivity(), ListContract.View, ListAdapter.onItemC
     }
 
     override fun itemDetail(user: User, position: Int) {
-        /*val intent = Intent(this, DetailsActivity::class.java)
+        val intent = Intent(this, DetailsActivity::class.java)
         intent.putExtra(Constants.DATA_USER_POSITION, position)
         intent.putExtra(Constants.DATA_USER_OBJECT, user)
-        startActivityForResult(intent, Constants.ACTIVITY_RESULT_USER_DETAILS)*/
+        startActivityForResult(intent, Constants.ACTIVITY_RESULT_USER_DETAILS)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

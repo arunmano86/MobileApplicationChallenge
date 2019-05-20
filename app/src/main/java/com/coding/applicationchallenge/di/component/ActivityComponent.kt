@@ -2,6 +2,7 @@ package com.coding.applicationchallenge.di.component
 
 
 import com.coding.applicationchallenge.di.module.ActivityModule
+import com.coding.applicationchallenge.ui.details.DetailsActivity
 import com.coding.applicationchallenge.ui.list.ListActivity
 import com.coding.applicationchallenge.ui.login.LoginActivity
 import dagger.Component
@@ -13,4 +14,5 @@ interface ActivityComponent {
 
     fun inject(listActivity: ListActivity)
 
+    fun inject(detailsActivity: DetailsActivity)
 }

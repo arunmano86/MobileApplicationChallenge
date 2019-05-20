@@ -69,6 +69,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         Toast.makeText(this, "Login SuccessFully", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, ListActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     override fun loginFail() {

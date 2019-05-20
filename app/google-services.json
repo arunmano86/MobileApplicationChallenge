@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "27934046959",
+    "firebase_url": "https://cartrackappchallenge.firebaseio.com",
+    "project_id": "cartrackappchallenge",
+    "storage_bucket": "cartrackappchallenge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27934046959:android:e720db7e4ba050f6",
+        "android_client_info": {
+          "package_name": "com.coding.applicationchalleng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27934046959-2264i1npm74nh741dpfp2ce0qq2dv68f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQOVdYaSg1Ievo9vzdATwiFO4-NmkDgQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27934046959-2264i1npm74nh741dpfp2ce0qq2dv68f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

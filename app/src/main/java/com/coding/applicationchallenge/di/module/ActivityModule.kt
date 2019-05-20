@@ -1,6 +1,8 @@
 package com.coding.applicationchallenge.di.module
 
 import android.app.Activity
+import com.coding.applicationchallenge.ui.details.DetailContract
+import com.coding.applicationchallenge.ui.details.DetailPresenter
 import com.coding.applicationchallenge.ui.list.ListContract
 import com.coding.applicationchallenge.ui.list.ListPresenter
 import com.coding.applicationchallenge.ui.login.LoginContract
@@ -24,5 +26,10 @@ class ActivityModule(private var activity: Activity) {
     @Provides
     fun provideListPresenter(): ListContract.Presenter {
         return ListPresenter()
+    }
+
+    @Provides
+    fun provideDetailPresenter(): DetailContract.Presenter {
+        return DetailPresenter()
     }
 }
