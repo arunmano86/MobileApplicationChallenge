@@ -92,12 +92,10 @@ class DetailsActivity : AppCompatActivity(), DetailContract.View, OnMapReadyCall
             detailsUserAddress.text = sb.toString()
             if (user.address.geo != null) {
                 location = LatLng(user.address.geo.lat.toDouble(), user.address.geo.lng.toDouble())
-                Log.d(TAG, "======user.address==========>"+location)
+                Log.d(TAG, "======location==========>"+location)
 
-                val mapFragment = supportFragmentManager
-                        .findFragmentById(R.id.map) as SupportMapFragment
+                val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
                 mapFragment.getMapAsync(this)
-
             }
         }
 
@@ -111,10 +109,8 @@ class DetailsActivity : AppCompatActivity(), DetailContract.View, OnMapReadyCall
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        mMap.addMarker(MarkerOptions().position(location))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location))
     }
 
     override fun onBackPressed() {
@@ -132,5 +128,4 @@ class DetailsActivity : AppCompatActivity(), DetailContract.View, OnMapReadyCall
     companion object {
         val TAG: String = "DetailsActivity"
     }
-
 }
