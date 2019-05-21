@@ -2,6 +2,7 @@ package com.coding.applicationchallenge.ui.login
 
 import android.text.TextUtils
 import com.coding.applicationchallenge.R
+import com.coding.applicationchallenge.db.DatabaseHandler
 import com.coding.applicationchallenge.models.Login
 import io.reactivex.disposables.CompositeDisposable
 
@@ -10,7 +11,7 @@ class LoginPresenter : LoginContract.Presenter {
     private val subscriptions = CompositeDisposable()
     private lateinit var view: LoginContract.View
 
-    override fun login(userName: String, password: String) {
+    override fun login(userName: String, password: String, dbHandler : DatabaseHandler) {
         this.view.showProgress(true)
 
         this.view.resetError()
@@ -19,7 +20,10 @@ class LoginPresenter : LoginContract.Presenter {
         } else if (TextUtils.isEmpty(password)) {
             this.view.showPasswordError(R.string.empty_password)
         } else {
-            if (userName.equals("username") && password.equals("123456")) {
+
+            var success = dbHandler!!.isLogin(userName, password)
+
+            if (success) {
                 this.view.loginSuccessFully();
             } else {
                 this.view.loginFail();

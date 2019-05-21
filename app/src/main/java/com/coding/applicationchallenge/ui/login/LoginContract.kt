@@ -1,6 +1,7 @@
 package com.coding.applicationchallenge.ui.login
 
 import com.coding.applicationchallenge.base.BaseContract
+import com.coding.applicationchallenge.db.DatabaseHandler
 import com.coding.applicationchallenge.models.Login
 
 class LoginContract {
@@ -16,6 +17,6 @@ class LoginContract {
     }
 
     interface Presenter: BaseContract.Presenter<LoginContract.View> {
-        fun login(userName: String, password: String)
+        fun login(userName: String, password: String, dbHandler : DatabaseHandler)
     }
 }

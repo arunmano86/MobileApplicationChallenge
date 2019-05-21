@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import com.coding.applicationchallenge.R
+import com.coding.applicationchallenge.db.DatabaseHandler
 import com.coding.applicationchallenge.di.component.DaggerActivityComponent
 import com.coding.applicationchallenge.di.module.ActivityModule
 import com.coding.applicationchallenge.ui.list.ListActivity
@@ -17,12 +18,17 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     @Inject
     lateinit var presenter: LoginContract.Presenter
 
+    lateinit var dbHandler: DatabaseHandler
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
 
         injectDependency()
+
+        //init db
+        dbHandler = DatabaseHandler(applicationContext)
 
         presenter.attach(this)
         presenter.subscribe()
@@ -58,7 +64,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     fun onLoginClick(view : View) {
-        presenter.login(loginUserNameTextInputET.text.toString(), loginPasswordTextInputET.text.toString())
+        presenter.login(loginUserNameTextInputET.text.toString(), loginPasswordTextInputET.text.toString(), dbHandler)
     }
 
     override fun showValidationErrorMsg() {
