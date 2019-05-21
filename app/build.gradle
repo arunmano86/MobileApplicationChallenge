@@ -45,6 +45,8 @@ dependencies {
     implementation "com.android.support:cardview-v7:$support_version"
     implementation "com.android.support:design:$support_version"
 
+    implementation 'com.weiwangcn.betterspinner:library-material:1.1.0'
+
     // retrofit + gson
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
