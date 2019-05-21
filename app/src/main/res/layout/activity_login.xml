@@ -79,11 +79,23 @@
                     android:text=""
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/loginCountrySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Country"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="15dp"
+                app:met_floatingLabel="normal"
+
+                />
+
             <Button
                 android:id="@+id/login_button_sign_in_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold"
                 style="@style/ButtonText"

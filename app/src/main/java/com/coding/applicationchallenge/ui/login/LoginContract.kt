@@ -13,10 +13,11 @@ class LoginContract {
 
         fun showUserNameError(resId : Int)
         fun showPasswordError(resId : Int)
+        fun showCountryError(resId : Int)
         fun resetError()
     }
 
     interface Presenter: BaseContract.Presenter<LoginContract.View> {
-        fun login(userName: String, password: String, dbHandler : DatabaseHandler)
+        fun login(userName: String, password: String, country : String, dbHandler : DatabaseHandler)
     }
 }

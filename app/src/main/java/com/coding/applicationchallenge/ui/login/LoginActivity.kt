@@ -12,6 +12,9 @@ import com.coding.applicationchallenge.di.module.ActivityModule
 import com.coding.applicationchallenge.ui.list.ListActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
+import android.widget.ArrayAdapter
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
 
@@ -32,11 +35,19 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         presenter.attach(this)
         presenter.subscribe()
+        init ()
+    }
+
+    fun init () {
+        val COUNTRIES = resources.getStringArray(R.array.country_arrays)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, COUNTRIES)
+        loginCountrySpinner.setAdapter(adapter);
     }
 
     override fun resetError() {
         loginUserNameTextInputLayout.error = null
         loginPasswordTextInputLayout.error = null
+        loginCountrySpinner.error = null
     }
 
     override fun showUserNameError(resId : Int) {
@@ -45,6 +56,10 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     override fun showPasswordError(resId : Int) {
         loginPasswordTextInputLayout.error = getString(resId)
+    }
+
+    override fun showCountryError(resId : Int) {
+        loginCountrySpinner.error = getString(resId)
     }
 
     private fun injectDependency() {
@@ -64,7 +79,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     fun onLoginClick(view : View) {
-        presenter.login(loginUserNameTextInputET.text.toString(), loginPasswordTextInputET.text.toString(), dbHandler)
+        presenter.login(loginUserNameTextInputET.text.toString(), loginPasswordTextInputET.text.toString(), loginCountrySpinner.text.toString(), dbHandler)
     }
 
     override fun showValidationErrorMsg() {
