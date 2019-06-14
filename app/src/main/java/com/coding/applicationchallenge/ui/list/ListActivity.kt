@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import com.coding.applicationchallenge.R
@@ -45,6 +47,19 @@ class ListActivity : AppCompatActivity(), ListContract.View, ListAdapter.onItemC
     private fun initView() {
         Log.d(TAG, "======initView==========>$presenter")
         presenter.loadData()
+
+        listSearchET.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                presenter.searchUser(p0.toString())
+            }
+        })
+
     }
 
     override fun onDestroy() {
@@ -67,8 +82,8 @@ class ListActivity : AppCompatActivity(), ListContract.View, ListAdapter.onItemC
     override fun loadDataSuccess(list: List<User>) {
         Log.d(TAG, "======loadDataSuccess==========>${list.size}")
         adapter = ListAdapter(applicationContext, list.toMutableList(), this)
-        recyclerView!!.setLayoutManager(LinearLayoutManager(this))
-        recyclerView!!.setAdapter(adapter)
+        recyclerView.setLayoutManager(LinearLayoutManager(this))
+        recyclerView.setAdapter(adapter)
     }
 
     override fun itemRemoveClick(user: User) {

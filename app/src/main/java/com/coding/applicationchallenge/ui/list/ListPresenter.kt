@@ -8,10 +8,12 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class ListPresenter : ListContract.Presenter{
+
+
     private val subscriptions = CompositeDisposable()
     private lateinit var view: ListContract.View
     private val api: ApiServiceInterface = ApiServiceInterface.create()
-
+    private lateinit var userList: List<User>
     override fun subscribe() {
 
     }
@@ -32,6 +34,7 @@ class ListPresenter : ListContract.Presenter{
         var subscribe = api.getUsersList().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ users: List<User> ->
+                    userList = users
                     view.showProgress(false)
                     view.loadDataSuccess(users)
                 }, { error ->
@@ -51,6 +54,16 @@ class ListPresenter : ListContract.Presenter{
 
     override fun updateItem(item: User) {
 
+    }
+
+    override fun searchUser(value: String)  {
+        this.view.showProgress(true)
+        Log.d("Tag", "===========value====>"+value)
+        var selectedList: List<User> = userList.filter { s -> s.name.contains(value, true)}
+        Log.d("Tag", "=========size======>"+selectedList.size)
+        view.loadDataSuccess(selectedList)
+
+        this.view.showProgress(false)
     }
 
 

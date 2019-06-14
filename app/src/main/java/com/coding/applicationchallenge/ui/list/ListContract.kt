@@ -15,5 +15,6 @@ class ListContract {
         fun loadDataAll()
         fun deleteItem(item: User)
         fun updateItem(item: User)
+        fun searchUser(value: String);
     }
 }

@@ -24,6 +24,9 @@ class ListAdapter(private val context: Context, private val list: MutableList<Us
         this.listener = activity as ListAdapter.onItemClickListener
     }
 
+    fun getUserList() : MutableList<User> {
+        return list;
+    }
 
     override fun getItemCount(): Int {
         return list.size
@@ -34,6 +37,8 @@ class ListAdapter(private val context: Context, private val list: MutableList<Us
 
         // holder!!.bind(post)
         holder.contactName.text = "${user.name}"
+        holder.contactEmail.text = "${user.email}"
+        holder.contactPhone.text = "${user.phone}"
         Picasso.with(context).load(R.drawable.default_user).into(holder.contactPhoto)
 
 
@@ -66,6 +71,8 @@ class ListAdapter(private val context: Context, private val list: MutableList<Us
         val layout = itemView.findViewById<LinearLayout>(R.id.contact_layout)
         val contactName = itemView.findViewById<TextView>(R.id.contact_name)
         val contactPhoto = itemView.findViewById<ImageView>(R.id.contact_photo)
+        val contactEmail = itemView.findViewById<TextView>(R.id.contact_email)
+        val contactPhone = itemView.findViewById<TextView>(R.id.contact_phone)
 
         fun bind(item: User) {
             // title = item.post
